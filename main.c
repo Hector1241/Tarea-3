@@ -1,20 +1,22 @@
 #include <stdio.h>
-/* Suma positivos.
-El programa, al recibir como datos N números enteros, obtiene la suma de los
-➥enteros positivos.
-I, N, NUM, SUM: variables de tipo entero. */
+#include <math.h>
+/* Suma cuadrados.
+El programa, al recibir como datos un grupo de enteros positivos, obtiene el
+➥cuadrado de los mismos y la suma correspondiente a dichos cuadrados. */
 void main(void)
 {
-int I, N, NUM, SUM;
-SUM = 0;
-printf(“Ingrese el número de datos:\t”);
-scanf(“%d”, &N);
-for (I=1; I<=N; I++)
-{
-printf(“Ingrese el dato número %d:\t”, I);
+int NUM;
+long CUA, SUC = 0;
+printf(“\nIngrese un número entero -0 para terminar-:\t”);
 scanf(“%d”, &NUM);
-if (NUM > 0)
-SUM = SUM + NUM;
+while (NUM)
+/* Observa que la condición es verdadera mientras el entero es diferente de cero. */
+{
+CUA = pow (NUM, 2);
+printf(“%d al cubo es %ld”, NUM, CUA);
+SUC = SUC + CUA;
+printf(“\nIngrese un número entero -0 para terminar-:\t”);
+scanf(“%d”, &NUM);
 }
-printf(“\nLa suma de los números positivos es: %d”, SUM);
+printf(“\nLa suma de los cuadrados es %ld”, SUC);
 }
