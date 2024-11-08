@@ -1,32 +1,25 @@
 #include <stdio.h>
-#include <math.h>
-/* Pares e impares.
-El programa, al recibir como datos N números enteros, obtiene la suma de los
-➥números pares y calcula el promedio de los impares.
-I, N, NUM, SPA, SIM, CIM: variables de tipo entero. */
+/* Nómina de profesores.
+El programa, al recibir como datos los salarios de los profesores de una
+➥universidad, obtiene la nómina y el promedio de los salarios.
+I: variable de tipo entero.
+SAL, NOM y PRO: variables de tipo real. */
 void main(void)
 {
-int I, N, NUM, SPA = 0, SIM = 0, CIM = 0;
-printf(“Ingrese el número de datos que se van a procesar:\t”);
-scanf(“%d”, &N);
-if (N > 0)
+int I = 0;
+float SAL, PRO, NOM = 0;
+printf(“Ingrese el salario del profesor:\t”);
+/* Observa que al menos se necesita ingresar el salario de un profesor para que
+➥no ocurra un error de ejecución del programa. */
+scanf(“%f”, &SAL);
+do
 {
-for (I=1; I <= N; I++)
-{
-printf(“\nIngrese el número %d: ”, I);
-scanf(“%d”, &NUM);
-if (NUM)
-if (pow(-1, NUM) > 0)
-SPA = SPA + NUM;
-else
-{
-SIM = SIM + NUM;
-CIM++;
+NOM = NOM + SAL;
+I = I + 1;
+printf(“Ingrese el salario del profesor -0 para terminar- :\t”);
+scanf(“%f”, &SAL);
 }
-}
-printf(“\n La suma de los números pares es: %d”, SPA);
-printf(“\n El promedio de números impares es: %5.2f”, (float)(SIM / CIM);
-}
-else
-printf(“\n El valor de N es incorrecto”);
+while (SAL);
+PRO = NOM / I;
+printf(“\nNómina: %.2f \t Promedio de salarios: %.2f”, NOM, PRO);
 }
